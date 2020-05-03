@@ -2,7 +2,7 @@
   "name": "redux-prep",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/native.js",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open",
