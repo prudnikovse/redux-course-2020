@@ -1,5 +1,8 @@
+import {combineReducers} from 'redux'
 
-export function rootReducer(state, action) {
+const initialState = { counter: 0}
+
+function counterReducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD':
             return {
@@ -11,9 +14,26 @@ export function rootReducer(state, action) {
                 ...state,
                 counter: state.counter - 1
             }
-        case 'ADD_ASYNC':
-            return state
         default:
             return state
     }
 }
+
+const initialThemeState = { value: 'light'}
+
+function themeReducer(state = initialThemeState, action) {
+    switch (action.type) {
+        case 'CHANGE_THEME':
+            return {
+                ...state,
+                value: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+export const rootReducer = combineReducers({
+    counter: counterReducer,
+    theme: themeReducer
+})
